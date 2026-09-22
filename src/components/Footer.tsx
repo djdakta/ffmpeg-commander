@@ -1,8 +1,8 @@
 import pkg from '../../package.json'
 
 const links = [
-  { href: 'https://github.com/djdakta/ffmpeg-commander/issues', label: 'Signaler un bug' },
-  { href: 'https://ffmpeg.org/ffmpeg.html', label: 'Documentation FFmpeg' },
+  { href: 'https://github.com/djdakta/ffmpeg-commander/issues', label: 'Report a Bug' },
+  { href: 'https://ffmpeg.org/ffmpeg.html', label: 'FFmpeg Documentation' },
 ]
 
 export default function Footer() {
@@ -19,7 +19,7 @@ export default function Footer() {
           </a>
         ))}
         <span className="ml-auto text-xs">
-          Projet d'origine par{' '}
+          Original project by{' '}
           <a
             href="https://github.com/alfg"
             target="_blank"
@@ -28,7 +28,7 @@ export default function Footer() {
           >
             alfg
           </a>
-          {' '}— Adapté avec <span className="text-red-500">♥</span> par{' '}
+          {' '}— Enhanced with <span className="text-red-500">♥</span> by{' '}
           <a
             href="https://dakta.website"
             target="_blank"
