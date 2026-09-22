@@ -50,7 +50,7 @@ export default function App() {
       update('io', { output: 'musique.mp3' })
     } else if (actionId === 'compress-discord') {
       preset.select('web-mp4-720p')
-      update('video', { crf: 28, preset: 'slow' })
+      update('video', { crf: '28', preset: 'slow' })
       update('audio', { quality: '96k' })
       update('io', { output: 'video_discord.mp4' })
     } else if (actionId === 'remux-mp4') {
