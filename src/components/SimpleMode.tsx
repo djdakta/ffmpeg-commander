@@ -52,7 +52,7 @@ export default function SimpleMode({
       {/* Étape 1 : Le fichier d'entrée */}
       <div className="flex flex-col gap-2">
         <label htmlFor="simple-input" className="text-sm font-semibold text-fg">
-          1. Nom de ton fichier source (vidéo ou audio)
+          1. Source file (video or audio)
         </label>
         <input
           id="simple-input"
@@ -63,14 +63,14 @@ export default function SimpleMode({
           className="w-full rounded border border-line bg-surface px-3 py-2 text-sm text-fg focus:border-ring focus:outline-none"
         />
         <p className="text-xs text-muted">
-          Assure-toi que la commande soit lancée dans le même dossier que ce fichier.
+          Make sure you lauch the command in the same directory where the file is.
         </p>
       </div>
 
       {/* Étape 2 : L'objectif recherché */}
       <div className="flex flex-col gap-3">
         <span className="text-sm font-semibold text-fg">
-          2. Que souhaites-tu faire ?
+          2. What do you want to do ?
         </span>
         <div className="grid gap-3 sm:grid-cols-2">
           {simpleActions.map((action) => {
