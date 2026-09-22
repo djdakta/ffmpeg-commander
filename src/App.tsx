@@ -1,4 +1,3 @@
-import Banner from '@/components/Banner'
 import CommandOutput from '@/components/CommandOutput'
 import FileIO from '@/components/FileIO'
 import Footer from '@/components/Footer'
