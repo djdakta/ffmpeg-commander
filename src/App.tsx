@@ -235,7 +235,6 @@ export default function App() {
   return (
     <div className="relative min-h-screen bg-surface text-fg">
       <Navbar />
-      <Banner />
 
       <main className="mx-auto flex max-w-3xl flex-col gap-5 px-4 py-6">
         <Tabs
