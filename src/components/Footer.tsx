@@ -1,8 +1,8 @@
 import pkg from '../../package.json'
 
 const links = [
-  { href: 'https://github.com/alfg/ffmpeg-commander/issues', label: 'Report a Bug' },
-  { href: 'https://ffmpeg.org/ffmpeg.html', label: 'FFmpeg Documentation' },
+  { href: 'https://github.com/djdakta/ffmpeg-commander/issues', label: 'Signaler un bug' },
+  { href: 'https://ffmpeg.org/ffmpeg.html', label: 'Documentation FFmpeg' },
 ]
 
 export default function Footer() {
@@ -14,14 +14,28 @@ export default function Footer() {
           {pkg.name}-{pkg.version}
         </span>
         {links.map((l) => (
-          <a key={l.href} href={l.href} className="hover:text-fg">
+          <a key={l.href} href={l.href} target="_blank" rel="noreferrer" className="hover:text-fg">
             {l.label}
           </a>
         ))}
-        <span className="ml-auto">
-          Built with <span className="text-red-500">♥</span> by{' '}
-          <a href="https://github.com/alfg" className="hover:text-fg">
+        <span className="ml-auto text-xs">
+          Projet d'origine par{' '}
+          <a
+            href="https://github.com/alfg"
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-fg underline"
+          >
             alfg
+          </a>
+          {' '}— Adapté avec <span className="text-red-500">♥</span> par{' '}
+          <a
+            href="https://dakta.website"
+            target="_blank"
+            rel="noreferrer"
+            className="font-medium text-fg underline"
+          >
+            DJ Dakta
           </a>
         </span>
       </div>
