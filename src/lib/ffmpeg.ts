@@ -257,11 +257,19 @@ function setFormatFlags(options: IFFmpegOptions) {
   return setFlagsFromMap(formatOptionsMap, options);
 }
 
+
 function setVideoFlags(options: IFFmpegOptions) {
   // "None" means no video track at all, so -vn replaces every other video flag.
   // Mirrors how acodec === 'none' is handled in setAudioFlags.
   if (options.vcodec === 'none') {
     return ['-vn'];
+  }
+
+  // faststart is only valid for QuickTime/MP4-based containers
+  const isMovContainer = ['mp4', 'mov', 'm4v'].includes(options.container?.toLowerCase() ?? '');
+  if (options.faststart && isMovContainer) {
+    const arg = ['-movflags', 'faststart'];
+    flags.push(...arg);
   }
 
   const flags = setFlagsFromMap(videoOptionsMap, options);

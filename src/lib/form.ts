@@ -183,7 +183,6 @@ sizes: [
     { name: '2K', value: '2k' },
     { name: '1600p', value: '1600p' },
     { name: '1440p', value: '1440p' },
-    { name: '1200p', value: '1200p' },
     { name: '1080p', value: '1080p' },
     { name: '900p', value: '900p' },
     { name: '720p', value: '720p' },
