@@ -3,7 +3,6 @@ A simple web UI for generating common FFmpeg encoding operations.
 
 https://ffmpeg-commander.com
 
-> 💡 Skip the terminal. **[Video Commander](https://video-commander.com?ref=ffmpeg-commander)** runs the encode — free for personal use.
 
 
 [![github pages](https://github.com/alfg/ffmpeg-commander/actions/workflows/github-pages.yml/badge.svg)](https://github.com/alfg/ffmpeg-commander/actions/workflows/github-pages.yml)
