@@ -9,6 +9,10 @@ https://ffmpeg-commander.com
 [![github pages](https://github.com/alfg/ffmpeg-commander/actions/workflows/github-pages.yml/badge.svg)](https://github.com/alfg/ffmpeg-commander/actions/workflows/github-pages.yml)
 [![Node.js CI](https://github.com/alfg/ffmpeg-commander/actions/workflows/node.js.yml/badge.svg)](https://github.com/alfg/ffmpeg-commander/actions/workflows/node.js.yml)
 
+
+<img width="735" height="426" alt="FFmpeg Commander Simple Mode Screenshot (dark)" src="https://github.com/user-attachments/assets/30afebfd-1d00-4cf4-946d-16690eea14fe" />
+
+
 <img width="1064" height="943" alt="FFmpeg Commander Screenshot (dark)" src="https://github.com/user-attachments/assets/f557a03b-1a3e-4833-836f-af4b009d5a1d" />
 
 <img width="1064" height="943" alt="FFmpeg Commander Screenshot (light)" src="https://github.com/user-attachments/assets/78b70459-60d6-4172-84bb-72cfd4a4f6df" />
