@@ -49,7 +49,7 @@ export default function SimpleMode({
 }: SimpleModeProps) {
   return (
     <div className="flex flex-col gap-6 rounded-xl border border-line bg-panel p-6 shadow-sm">
-      {/* Étape 1 : Le fichier d'entrée */}
+      {/* Step 1 : Input file */}
       <div className="flex flex-col gap-2">
         <label htmlFor="simple-input" className="text-sm font-semibold text-fg">
           1. Source file (video or audio)
@@ -59,7 +59,7 @@ export default function SimpleMode({
           type="text"
           value={inputFile}
           onChange={(e) => onInputFileChange(e.target.value)}
-          placeholder="ex: ma_video.mkv"
+          placeholder="ex: my_video.mkv"
           className="w-full rounded border border-line bg-surface px-3 py-2 text-sm text-fg focus:border-ring focus:outline-none"
         />
         <p className="text-xs text-muted">
@@ -67,7 +67,7 @@ export default function SimpleMode({
         </p>
       </div>
 
-      {/* Étape 2 : L'objectif recherché */}
+      {/* Step 2 : What do you want to do */}
       <div className="flex flex-col gap-3">
         <span className="text-sm font-semibold text-fg">
           2. What do you want to do ?
