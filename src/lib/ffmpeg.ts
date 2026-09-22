@@ -275,7 +275,9 @@ function setVideoFlags(options: IFFmpegOptions) {
     flags.push(...arg);
   }
 
-  if (options.faststart) {
+// faststart is only valid for QuickTime/MP4-based containers
+  const isMovContainer = ['mp4', 'mov', 'm4v'].includes(options.container?.toLowerCase() ?? '');
+  if (options.faststart && isMovContainer) {
     const arg = ['-movflags', 'faststart'];
     flags.push(...arg);
   }
