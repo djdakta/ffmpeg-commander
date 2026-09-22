@@ -47,7 +47,7 @@ export default function App() {
       update('format', { container: 'mp3' })
       update('video', { codec: 'none' })
       update('audio', { codec: 'lame', quality: '320k' })
-      update('io', { output: 'musique.mp3' })
+      update('io', { output: 'audio.mp3' })
     } else if (actionId === 'compress-discord') {
       preset.select('web-mp4-720p')
       update('video', { crf: '28', preset: 'slow' })
@@ -57,7 +57,7 @@ export default function App() {
       update('format', { container: 'mp4' })
       update('video', { codec: 'copy' })
       update('audio', { codec: 'copy' })
-      update('io', { output: 'video_remux.mp4' })
+      update('io', { output: 'remuxed.mp4' })
     }
   }
 
@@ -126,27 +126,27 @@ export default function App() {
       {/* Commutateur de Mode : Simple vs Avancé */}
       <div className="flex items-center justify-between border-b border-line pb-4">
         <div className="flex items-center gap-2">
-          <span className="text-sm font-semibold">Mode d'interface :</span>
+          <span className="text-sm font-semibold">UI Mode:</span>
           <div className="inline-flex rounded-lg border border-line bg-surface p-1">
-            <button
-              type="button"
-              onClick={() => setIsSimpleMode(true)}
-              className={`rounded-md px-3 py-1 text-xs font-medium transition-colors ${
-                isSimpleMode ? 'bg-panel text-fg shadow-sm' : 'text-muted hover:text-fg'
-              }`}
-            >
-              ✨ Simple (Débutant)
-            </button>
-            <button
-              type="button"
-              onClick={() => setIsSimpleMode(false)}
-              className={`rounded-md px-3 py-1 text-xs font-medium transition-colors ${
-                !isSimpleMode ? 'bg-panel text-fg shadow-sm' : 'text-muted hover:text-fg'
-              }`}
-            >
-              ⚙️ Avancé (Expert)
-            </button>
-          </div>
+  <button
+    type="button"
+    onClick={() => setIsSimpleMode(true)}
+    className={`rounded-md px-3 py-1 text-xs font-medium transition-colors ${
+      isSimpleMode ? 'bg-panel text-fg shadow-sm' : 'text-muted hover:text-fg'
+    }`}
+  >
+    ✨ Simple (Quick)
+  </button>
+  <button
+    type="button"
+    onClick={() => setIsSimpleMode(false)}
+    className={`rounded-md px-3 py-1 text-xs font-medium transition-colors ${
+      !isSimpleMode ? 'bg-panel text-fg shadow-sm' : 'text-muted hover:text-fg'
+    }`}
+  >
+    ⚙️ Advanced (Expert)
+  </button>
+</div>
         </div>
       </div>
 
