@@ -1,115 +1,55 @@
 # `ffmpeg-commander`
+
 A simple web UI for generating common FFmpeg encoding operations.
 
-https://ffmpeg-commander.com
+## Overview & Deployment
 
+**Live Deployment:** [ffmpeg.dakta.website](https://ffmpeg.dakta.website)
 
-
-[![github pages](https://github.com/alfg/ffmpeg-commander/actions/workflows/github-pages.yml/badge.svg)](https://github.com/alfg/ffmpeg-commander/actions/workflows/github-pages.yml)
-[![Node.js CI](https://github.com/alfg/ffmpeg-commander/actions/workflows/node.js.yml/badge.svg)](https://github.com/alfg/ffmpeg-commander/actions/workflows/node.js.yml)
-
+This repository is a modernized, ad-free personal fork of `ffmpeg-commander`, tailored for fast, practical encoding workflows. While `FFmpeg` provides powerful options, it can be intimidating to use. This tool offers a streamlined interface inspired by HandBrake, making it easy to generate commands for both simple and complex media tasks.
 
 <img width="735" height="426" alt="FFmpeg Commander Simple Mode Screenshot (dark)" src="https://github.com/user-attachments/assets/30afebfd-1d00-4cf4-946d-16690eea14fe" />
 
-
 <img width="1064" height="943" alt="FFmpeg Commander Screenshot (dark)" src="https://github.com/user-attachments/assets/f557a03b-1a3e-4833-836f-af4b009d5a1d" />
 
-<img width="1064" height="943" alt="FFmpeg Commander Screenshot (light)" src="https://github.com/user-attachments/assets/78b70459-60d6-4172-84bb-72cfd4a4f6df" />
+## Core Enhancements
 
+This fork introduces several improvements and customizations compared to the upstream project:
 
+- **Stream Copy Priority**: Added instant container remuxing (`-c copy`) without re-encoding overhead.
+- **Modern Codec Stack**: Upgraded AV1 support from legacy `libaom-av1` to `libsvtav1` and added hardware-accelerated `av1_nvenc`.
+- **Refined Presets & Options**: Updated presets with optimized CRF/preset values for SVT-AV1, expanded container compatibility (MP4/MKV/WebM), and clarified UI labels.
+- **Simplified / Quick Mode**: Refactored user-friendly workflows alongside the advanced parametric mode.
+- **Clean Interface**: Completely removed third-party commercial banners, promotional links, and dead code.
 
-Read the blog post at: https://dev.to/alfg/ffmpeg-the-easy-way-4a0h
+## Development & Build
 
-Check out [docker-ffmpeg](https://github.com/alfg/docker-ffmpeg) for a customized Docker build of FFmpeg.
+`ffmpeg-commander` is built with [React](https://react.dev), [Vite](https://vite.dev), and [Tailwind CSS](https://tailwindcss.com).
 
+Requires Node 20 or newer. [NVM](https://github.com/nvm-sh/nvm) is recommended for managing versions.
 
-## Why?
-`FFmpeg` has many simple and complex options, which can be intimidating at first. I wanted to create a simple interface for generating common encoding operations for video and audio, inspired by [HandBrake](https://handbrake.fr/).
+### Install & Run
 
-This tool does NOT cover all options of FFmpeg and some assumptions are made when generating the output. So adjustments may be necessary. Generated options may also vary based on your FFmpeg version and build configuration.
-
-If you feel some options can be improved, feel free to open an issue or pull request.
-
-## Presets
-The **Preset** picker ships ready-made recipes for the workflows people reach for
-most. Pick one, adjust anything you like, and copy the command.
-
-| Group | Recipes |
-| --- | --- |
-| General | H264 and VP9 ladders from 360p to 1080p, CRF and fixed-bitrate |
-| Web & Streaming | H264/HEVC MP4 with `faststart`, VP9 WebM constant quality, AV1 |
-| Social & Mobile | Vertical 9:16 1080x1920, square 1:1 1080x1080 |
-| Archive & Quality | Visually lossless H264, 10-bit HEVC archive, 4K UHD |
-| Restore & Cleanup | Deinterlace DVD/broadcast, denoise + deband, stabilize action cam |
-| Audio Only | Extract to MP3, M4A/AAC, FLAC, and a mono podcast mix |
-| Utility | Remux to MP4, strip audio, 10 second preview clip, timelapse, slow motion |
-
-Your own presets are saved to local storage, and every setting is also encoded in
-the URL, so a tweaked recipe can be shared as a link.
-
-## Development
-`ffmpeg-commander` is built with [React](https://react.dev), [Vite](https://vite.dev) and
-[Tailwind CSS](https://tailwindcss.com).
-
-Node 20 or newer. [NVM](https://github.com/nvm-sh/nvm) is recommended for managing versions.
-
-### Install
 ```bash
 npm install
 npm run dev
 ```
-* Load `http://localhost:5173/` in the web browser.
 
-### Test, lint and build
+Load `http://localhost:5173/` in your web browser.
+
+### Test, Lint, and Build
+
 ```bash
 npm test
 npm run lint
 npm run build
 ```
 
-### Layout
-```
-src/lib/          framework-agnostic modules: command generation, the URL
-                  contract, presets, storage, the ffmpegd client
-src/lib/__tests__ the test suite
-src/components/   React components (ui/ primitives, sections/ form groups)
-src/hooks/        form state, presets, theme, ffmpegd connection
-```
+## `ffmpegd` Integration
 
-### Deploy
-Deploys to [GitHub Pages](https://pages.github.com/) automatically on every push to
-`master`, via `.github/workflows/github-pages.yml`. To publish by hand:
-```
-npm run deploy
-```
-
-## `ffmpegd`
-`ffmpegd` is an optional companion application that connects `ffmpeg-commander` to `ffmpeg` by providing a websocket server to send encode tasks and receive realtime progress updates back to the browser. This allows using ffmpeg-commander as a GUI for ffmpeg.
+`ffmpegd` is an optional companion application that connects `ffmpeg-commander` to `ffmpeg` via a websocket server. It sends encode tasks and receives real-time progress updates, turning the web app into a fully-fledged GUI for ffmpeg.
 
 See: https://github.com/alfg/ffmpegd
-
-The app connects to `ffmpegd` at `localhost:8080`. `ffmpegd` only accepts
-connections from a fixed list of origins, so the site you load
-`ffmpeg-commander` from must be on that list.
-
-When running the dev server, the Vite config proxies `/ws` and `/files` to
-`localhost:8080` and presents an origin `ffmpegd` accepts, since the dev
-server's own port is not on the list.
-
-To use a daemon on another host or port, turn on ffmpegd in the Options tab and
-enter its address under **Daemon address**, e.g. `mybox:9000` or
-`https://ffmpegd.example.com`. It is saved in the browser's localStorage.
-
-Browsers only let an https page open a plain `ws://` connection to `localhost`.
-To reach a daemon on another machine from https://ffmpeg-commander.com, serve it
-over https (for example behind a TLS reverse proxy) and enter an `https://`
-address.
-
-
-
-### TODO
-* Support multiple inputs and map option
-* Expand on Filter options
 
 ## License
 MIT
