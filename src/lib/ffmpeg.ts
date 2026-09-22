@@ -265,13 +265,6 @@ function setVideoFlags(options: IFFmpegOptions) {
     return ['-vn'];
   }
 
-  // faststart is only valid for QuickTime/MP4-based containers
-  const isMovContainer = ['mp4', 'mov', 'm4v'].includes(options.container?.toLowerCase() ?? '');
-  if (options.faststart && isMovContainer) {
-    const arg = ['-movflags', 'faststart'];
-    flags.push(...arg);
-  }
-
   const flags = setFlagsFromMap(videoOptionsMap, options);
 
   //
@@ -283,11 +276,20 @@ function setVideoFlags(options: IFFmpegOptions) {
     flags.push(...arg);
   }
 
-// faststart is only valid for QuickTime/MP4-based containers
+  // faststart is only valid for QuickTime/MP4-based containers
   const isMovContainer = ['mp4', 'mov', 'm4v'].includes(options.container?.toLowerCase() ?? '');
   if (options.faststart && isMovContainer) {
     const arg = ['-movflags', 'faststart'];
     flags.push(...arg);
+  }
+
+  if (options.codecOptions && ['libx264', 'libx265'].includes(options.vcodec)) {
+    const arg = [`-${options.vcodec.replace('lib', '')}-params`, options.codecOptions];
+    flags.push(...arg);
+  }
+
+  return flags;
+}
   }
 
   if (options.codecOptions && ['libx264', 'libx265'].includes(options.vcodec)) {
