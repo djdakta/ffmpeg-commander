@@ -17,26 +17,26 @@ interface SimpleModeProps {
 export const simpleActions = [
   {
     id: 'web-1080p',
-    title: 'Compatibilité Web & Mobile (1080p)',
-    description: 'Format standard universel (MP4 H.264 + AAC + Faststart). Idéal pour partager sans prise de tête.',
-    icon: '🎬',
+    title: 'Web & Mobile Compatibility (1080p)',
+    description: 'Standard MP4 format (H.264 + AAC + Faststart). Ideal for universal playback and sharing.',
+    icon: '📱',
   },
   {
     id: 'extract-mp3',
-    title: 'Extraire la musique en MP3',
-    description: 'Supprime la vidéo et conserve uniquement la piste audio en haute qualité MP3 (320 kbps).',
+    title: 'Extract MP3 Audio',
+    description: 'Strips video and extracts the audio track in high quality MP3 (320 kbps).',
     icon: '🎵',
   },
   {
     id: 'compress-discord',
-    title: 'Compresser pour Discord / Mail (< 25 Mo)',
-    description: 'Réduit drastiquement le poids de la vidéo (720p, bitrate optimisé) pour passer sous la limite d\'envoi.',
-    icon: '📦',
+    title: 'Compress for Discord / Email (< 25MB)',
+    description: 'Reduces file size and lowers bitrate while keeping decent 720p quality.',
+    icon: '🗜️',
   },
   {
     id: 'remux-mp4',
-    title: 'Changer le conteneur en MP4 (Ultra rapide)',
-    description: 'Ne ré-encode rien (copie brute des flux). Pratique si ton lecteur refuse un fichier MKV.',
+    title: 'Convert MKV to MP4 (Ultra Fast)',
+    description: 'Changes container to MP4 without re-encoding video/audio (lossless, instant).',
     icon: '⚡',
   },
 ]
