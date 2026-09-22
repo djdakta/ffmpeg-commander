@@ -34,11 +34,11 @@ export const simpleActions = [
     icon: '🗜️',
   },
   {
-    id: 'remux-mp4',
-    title: 'Convert MKV to MP4 (Ultra Fast)',
-    description: 'Changes container to MP4 without re-encoding video/audio (lossless, instant).',
-    icon: '⚡',
-  },
+  id: 'remux-mp4',
+  title: 'Remux to MP4 (Ultra Fast, No Re-encoding)',
+  description: 'Changes container (MKV, MOV, TS, etc.) to MP4 without touching audio/video streams (lossless, instant).',
+  icon: '⚡',
+},
 ]
 
 export default function SimpleMode({
