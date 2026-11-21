@@ -12,6 +12,8 @@ This repository is a modernized, ad-free personal fork of `ffmpeg-commander`, ta
 
 <img width="1064" height="943" alt="FFmpeg Commander Screenshot (dark)" src="https://github.com/user-attachments/assets/f557a03b-1a3e-4833-836f-af4b009d5a1d" />
 
+<img width="1064" height="943" alt="FFmpeg Commander Screenshot (light)" src="https://github.com/user-attachments/assets/78b70459-60d6-4172-84bb-72cfd4a4f6df" />
+
 ## Core Enhancements
 
 This fork introduces several improvements and customizations compared to the upstream project:
@@ -33,23 +35,3 @@ Requires Node 20 or newer. [NVM](https://github.com/nvm-sh/nvm) is recommended f
 ```bash
 npm install
 npm run dev
-```
-
-Load `http://localhost:5173/` in your web browser.
-
-### Test, Lint, and Build
-
-```bash
-npm test
-npm run lint
-npm run build
-```
-
-## `ffmpegd` Integration
-
-`ffmpegd` is an optional companion application that connects `ffmpeg-commander` to `ffmpeg` via a websocket server. It sends encode tasks and receives real-time progress updates, turning the web app into a fully-fledged GUI for ffmpeg.
-
-See: https://github.com/alfg/ffmpegd
-
-## License
-MIT
